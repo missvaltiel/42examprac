@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/02 16:17:24 by karvin            #+#    #+#             */
-/*   Updated: 2016/08/02 17:37:46 by karvin           ###   ########.fr       */
+/*   Created: 2016/08/03 04:03:37 by karvin            #+#    #+#             */
+/*   Updated: 2016/08/03 05:15:01 by karvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	first_word(char *str)
+void	ft_ulstr(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t')
-		i++;
-	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
+	while(str[i] != '\0')
 	{
-		ft_putchar(str[i]);
+		if (str[i] >= 'a' && str[i] <= 'z')
+			ft_putchar(str[i] - 32);
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+			ft_putchar(str[i] + 32);
+		else
+			ft_putchar(str[i]);
 		i++;
 	}
 }
@@ -34,7 +37,7 @@ void	first_word(char *str)
 int		main(int argc, char **argv)
 {
 	if (argc == 2)
-		first_word(argv[1]);
+		ft_ulstr(argv[1]);
 	ft_putchar('\n');
-	return(0);
+	return (0);
 }

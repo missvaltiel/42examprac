@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_a.c                                            :+:      :+:    :+:   */
+/*   first_param.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/02 16:31:22 by karvin            #+#    #+#             */
-/*   Updated: 2016/08/02 16:43:12 by karvin           ###   ########.fr       */
+/*   Created: 2016/08/02 19:04:47 by karvin            #+#    #+#             */
+/*   Updated: 2016/08/02 19:27:48 by karvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,28 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	aff_a(char *str)
+void	ft_putstr(char *str)
 {
-	while (str != '\0')
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (*str == 'a')
-		{
-			write(1, str, 1);
-			ft_putchar('\n');
-			break ;
-		}
-		else
-		{
-			str++;
-		}
+		ft_putchar(str[i]);
+		i++;
 	}
 }
 
-
 int		main(int argc, char **argv)
 {
-	if (argc != 2)
+	if (argc < 2)
 	{
-		ft_putchar('a');
 		ft_putchar('\n');
 	}
-	if (argc == 2)
+	else
 	{
-		aff_a(argv[2]);
+		ft_putstr(argv[1]);
 	}
-	return (0);
+	ft_putchar('\n');
+	return(0);
 }
